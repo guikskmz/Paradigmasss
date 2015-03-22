@@ -11,11 +11,7 @@ hasEqHeads :: [Int] -> [Int] -> Bool
 hasEqHeads x y = if (head x) == (head y) then True else False
 
 
---  2)Observe a função abaixo, que eleva ao cubo cada elemento da lista, produzindo outra lista.
-
-pot3 :: [Int] -> [Int]
-pot3 [] = []
-pot3 a = (head a)^3 : pot3 (tail a)
+--  2) (apenas observar a função)
 
 
 --  3)Escreva uma função recursiva add10, que adicione a constante 10 a cada elemento de uma lista, produzindo outra lista.
@@ -70,9 +66,17 @@ charFound ca st
 
 --  8)Reescreva a função anterior sem recursão, usando outras funções pré-definidas já vistas em aula.
 
+charFound2 :: Char -> String -> Bool
+charFound2 ca st
+			|filter (== ca) st /= [] = True
+			|filter (== ca) st == [] = False
+
 
 --  9)Use a função de alta ordem 'zipWith' para produzir uma função que obtenha as diferenças, par a par, dos elementos de duas listas.
 --   Por exemplo: para listas de entrada [1,2,3,4] e [2,2,1,1], o resultado será [-1,0,2,3].
+
+diff :: [Int] -> [Int] -> [Int]
+diff a b = zipWith (-) a b
 
 
 
