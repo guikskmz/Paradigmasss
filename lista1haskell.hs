@@ -76,6 +76,7 @@ charFound2 ca st
 --   Por exemplo: para listas de entrada [1,2,3,4] e [2,2,1,1], o resultado será [-1,0,2,3].
 
 diff :: [Int] -> [Int] -> [Int]
+diff [] [] = []
 diff a b = zipWith (-) a b
 
 
@@ -87,13 +88,29 @@ diff a b = zipWith (-) a b
 
 --  1)Dada uma lista de números, calcular 2*n+1 para cada número n contido na lista.
 
+eq :: [Int] -> [Int]
+eq [] = []
+eq x = map (\x -> 2*x+1) x
+
 
 --  2)Dadas duas listas X e Y de números inteiros, calcular 4*x+2*y+1 para cada par de números x e y pertencentes às listas.
+
+eq2 :: [Int] -> [Int] -> [Int]
+eq2 [] [] = []
+eq2 a b = zipWith (\a b -> 4*a+2*b+1) a b
 
 
 --  3)Dada uma lista de strings, produzir outra lista com strings de 10 caracteres, usando o seguinte esquema:
 --   strings de entrada com mais de 10 caracteres são truncadas, strings com até 10 caracteres são completadas com '.' até ficarem com 10 caracteres.
 
+dez :: [String] -> [String]
+dez [] = []
+dez (a:b) = take 10 (a ++ (repeat '.')) : dez b
+
 
 --  4)Dada uma lista de idades, selecionar as que são maiores que 20 e, para cada uma, calcular o ano de nascimento correspondente
 --   (aproximado, considerando o ano atual).
+
+anonasc :: [Int]->[Int]
+anonasc [] = []
+anonasc a = map(2015-)(filter(>20)a)
